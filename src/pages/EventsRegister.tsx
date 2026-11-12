@@ -7,7 +7,6 @@ import { Spinner } from '../components/ui/Spinner'
 import { fetchEventoPorId, registrosDelUsuario, ticketsDelUsuario } from '../lib/api'
 import { supabase } from '../lib/supabase'
 import { formatearFecha } from '../lib/cronograma'
-import { Modal } from '../components/ui/Modal'
 
 type TicketData = {
   evento_id?: number
@@ -381,8 +380,4 @@ function TicketDetail({
       </div>
     </div>
   )
-}
-
-export function EventoDetallePage() {
-  return <Modal title="Evento" description="Usá Mis Eventos para ver tus entradas." onClose={{ label: 'Cerrar', action: () => history.back() }} />
 }

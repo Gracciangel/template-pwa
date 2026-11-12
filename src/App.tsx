@@ -9,7 +9,21 @@ import { NotificacionesPage } from './pages/Notificaciones'
 import { BiblePage } from './pages/Bible'
 import { AuthCallbackPage } from './pages/AuthCallback'
 import { NotFoundPage } from './pages/NotFound'
-import { PlaceholderPage } from './pages/Placeholder'
+import { AudiosPage, MusicaPage } from './pages/Audios'
+import { VideoPage } from './pages/Video'
+import { NotesPage } from './pages/Notes'
+import { GroupsPage } from './pages/Groups'
+import { GrupoDetallePage } from './pages/GrupoDetalle'
+import { MinisteriosPage } from './pages/Ministerios'
+import { MinisterioDetallePage } from './pages/MinisterioDetalle'
+import { CronogramaPage } from './pages/Cronograma'
+import { DanzaMapaPage } from './pages/DanzaMapa'
+import { EventsRegisterPage } from './pages/EventsRegister'
+import { EventoDetallePage } from './pages/EventoDetalle'
+import { CancionesPage } from './pages/Canciones'
+import { CancionDetallePage } from './pages/CancionDetalle'
+import { AdminCancionesPage } from './pages/AdminCanciones'
+import { AdminCancionFormPage } from './pages/AdminCancionForm'
 
 export default function App() {
   return (
@@ -24,22 +38,22 @@ export default function App() {
         <Route path="profile" element={<ProfilePage />} />
         <Route path="notificaciones" element={<NotificacionesPage />} />
 
-        <Route path="audios" element={<PlaceholderPage title="Audios" />} />
-        <Route path="musica" element={<PlaceholderPage title="Música" />} />
-        <Route path="video" element={<PlaceholderPage title="Videos" />} />
-        <Route path="notes" element={<PlaceholderPage title="Mis notas" />} />
-        <Route path="groups" element={<PlaceholderPage title="Grupos" />} />
-        <Route path="grupo/:id" element={<PlaceholderPage title="Grupo" />} />
-        <Route path="ministerios" element={<PlaceholderPage title="Ministerios" />} />
-        <Route path="ministerio/:id" element={<PlaceholderPage title="Ministerio" />} />
-        <Route path="ministerio/cronograma" element={<PlaceholderPage title="Cronograma" />} />
-        <Route path="ministerio/danza-mapa" element={<PlaceholderPage title="Mapa de danza" />} />
-        <Route path="events-register" element={<PlaceholderPage title="Mis eventos" />} />
-        <Route path="evento/:id" element={<PlaceholderPage title="Evento" />} />
-        <Route path="canciones" element={<PlaceholderPage title="Canciones" />} />
-        <Route path="cancion/:id" element={<PlaceholderPage title="Canción" />} />
-        <Route path="admin/canciones" element={<PlaceholderPage title="Administrar canciones" />} />
-        <Route path="admin/cancion-form" element={<PlaceholderPage title="Editar canción" />} />
+        <Route path="audios" element={<AudiosPage />} />
+        <Route path="musica" element={<MusicaPage />} />
+        <Route path="video" element={<VideoPage />} />
+        <Route path="notes" element={<NotesPage />} />
+        <Route path="groups" element={<GroupsPage />} />
+        <Route path="grupo/:id" element={<GrupoDetallePage />} />
+        <Route path="ministerios" element={<MinisteriosPage />} />
+        <Route path="ministerio/:id" element={<MinisterioDetallePage />} />
+        <Route path="ministerio/cronograma" element={<CronogramaPage />} />
+        <Route path="ministerio/danza-mapa" element={<DanzaMapaPage />} />
+        <Route path="events-register" element={<EventsRegisterPage />} />
+        <Route path="evento/:id" element={<EventoDetallePage />} />
+        <Route path="canciones" element={<CancionesPage />} />
+        <Route path="cancion/:id" element={<CancionDetallePage />} />
+        <Route path="admin/canciones" element={<AdminCancionesPage />} />
+        <Route path="admin/cancion-form" element={<AdminCancionFormPage />} />
 
         <Route path="auth/callback" element={<AuthCallbackPage />} />
         <Route path="*" element={<NotFoundPage />} />
