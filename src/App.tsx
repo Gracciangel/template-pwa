@@ -6,6 +6,7 @@ import { RegisterPage } from './pages/Register'
 import { ProfilePage } from './pages/Profile'
 import { SocialPage } from './pages/Social'
 import { NotificacionesPage } from './pages/Notificaciones'
+import { BiblePage } from './pages/Bible'
 import { AuthCallbackPage } from './pages/AuthCallback'
 import { NotFoundPage } from './pages/NotFound'
 import { PlaceholderPage } from './pages/Placeholder'
@@ -15,7 +16,7 @@ export default function App() {
     <Routes>
       <Route element={<AppLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="bible" element={<PlaceholderPage title="Biblia" />} />
+        <Route path="bible" element={<BiblePage />} />
         <Route path="social" element={<SocialPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="user" element={<Navigate to="/login" replace />} />
