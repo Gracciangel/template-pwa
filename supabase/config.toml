@@ -1,0 +1,5 @@
+project_id = "tdg-app"
+
+[functions.send-push]
+# La llama Postgres vía pg_net (sin JWT). Se autentica con x-push-secret.
+verify_jwt = false

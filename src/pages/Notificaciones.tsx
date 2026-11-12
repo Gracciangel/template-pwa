@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, BellOff, Trash2 } from 'lucide-react'
 import { useAuth } from '../auth/AuthProvider'
+import { PushToggle } from '../components/PushToggle'
 import { Spinner } from '../components/ui/Spinner'
 import {
   eliminarNotificacionUsuario,
@@ -68,6 +69,8 @@ export function NotificacionesPage() {
         </button>
         <h1 className="text-lg font-bold text-white">Notificaciones</h1>
       </div>
+
+      <PushToggle />
 
       {cargando ? (
         <div className="flex justify-center py-20">
