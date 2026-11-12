@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, Building2, RefreshCw, Users } from 'lucide-react'
 import { useAuth } from '../auth/AuthProvider'
 import { Card } from '../components/ui/Card'
-import { Spinner } from '../components/ui/Spinner'
+// import { Spinner } from '../components/ui/Spinner'
 
 export function GroupsPage() {
   const { usuario, grupos, refrescarEntidades, cargando } = useAuth()

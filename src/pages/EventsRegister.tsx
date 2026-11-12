@@ -7,6 +7,7 @@ import { Spinner } from '../components/ui/Spinner'
 import { fetchEventoPorId, registrosDelUsuario, ticketsDelUsuario } from '../lib/api'
 import { supabase } from '../lib/supabase'
 import { formatearFecha } from '../lib/cronograma'
+import { Modal } from '../components/ui/Modal'
 
 type TicketData = {
   evento_id?: number
