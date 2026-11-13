@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import { useAuth } from '../auth/AuthProvider'
 import { Countdown } from '../components/Countdown'
 import { VersiculoDelDiaCard } from '../components/VersiculoDelDia'
@@ -26,10 +26,10 @@ export function HomePage() {
     )
   }
 
-  const nombre = usuario ? usuario.nombre.charAt(0).toUpperCase() + usuario.nombre.slice(1).toLowerCase() : ''
+  const nombre = usuario ? usuario.nombre_usuario.charAt(0).toUpperCase() + usuario.nombre_usuario.slice(1).toLowerCase() : ''
 
   return (
-    <div className="animate-fade-in pt-safe">
+    <div className="animate-fade-in">
       <div className="px-6 pt-6">
         {usuario && <h1 className="text-2xl font-bold text-white">Te damos la bienvenida, {nombre}</h1>}
         <Countdown />

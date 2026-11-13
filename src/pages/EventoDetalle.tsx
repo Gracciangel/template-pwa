@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+﻿import { useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, CalendarDays, CalendarX, Clock, Plus, Tag, Users, X } from 'lucide-react'
 import { useAuth } from '../auth/AuthProvider'
@@ -18,12 +18,12 @@ type Evento = {
 }
 
 function tipoEvento(min: number, max: number): string {
-  if (max <= 12) return 'Niños'
+  if (max <= 12) return 'NiÃ±os'
   if (min >= 60) return 'Adultos mayores'
-  if (min >= 18) return 'Jóvenes y adultos'
+  if (min >= 18) return 'JÃ³venes y adultos'
   if (max <= 17) return 'Adolescentes'
-  if (min <= 5) return 'Niños'
-  return 'Todo público'
+  if (min <= 5) return 'NiÃ±os'
+  return 'Todo pÃºblico'
 }
 
 export function EventoDetallePage() {
@@ -86,7 +86,7 @@ export function EventoDetallePage() {
   }
 
   return (
-    <div className="pt-safe px-6 pt-6">
+    <div className="px-6 pt-6">
       <button type="button" onClick={() => navigate(-1)} className="mb-6 flex items-center gap-2 text-white">
         <ArrowLeft size={20} />
         <span>Volver</span>
@@ -114,14 +114,14 @@ export function EventoDetallePage() {
         <div className="mb-3 flex items-center gap-3 text-base text-zinc-300">
           <Clock size={16} className="text-green-500" />
           <span>
-            Hora: <span className="font-semibold text-white">{evento.hora_evento?.slice(0, 5) || '—'}</span>
+            Hora: <span className="font-semibold text-white">{evento.hora_evento?.slice(0, 5) || 'â€”'}</span>
           </span>
         </div>
 
         <div className="flex items-center gap-3 text-base text-zinc-300">
           <Users size={16} className="text-blue-500" />
           <span>
-            Edad: <span className="font-semibold text-white">{evento.edad_min ?? 0} – {evento.edad_max ?? 99} años</span>
+            Edad: <span className="font-semibold text-white">{evento.edad_min ?? 0} â€“ {evento.edad_max ?? 99} aÃ±os</span>
           </span>
         </div>
       </div>

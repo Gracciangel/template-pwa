@@ -32,7 +32,7 @@ export function AppLayout() {
 
   return (
     <div className="flex min-h-full flex-col bg-black">
-      <main className="flex-1 pb-24">
+      <main className="pt-safe flex-1 pb-24">
         <Outlet />
       </main>
 

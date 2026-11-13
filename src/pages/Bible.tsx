@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+﻿import { useCallback, useEffect, useMemo, useState } from 'react'
 import { ArrowLeft, Check, ChevronLeft, ChevronRight, Heart, Search, Settings, Share2, Star, Type } from 'lucide-react'
 import { useAuth } from '../auth/AuthProvider'
 import { Spinner } from '../components/ui/Spinner'
@@ -122,7 +122,7 @@ export function BiblePage() {
 
   return (
     <div className="flex min-h-[80vh] flex-col" style={{ backgroundColor: modo === 'navegar' && versiculos.length > 0 ? prefs.bgColor : '#000' }}>
-      <div className="px-4 pt-safe">
+      <div className="px-4">
         <h1 className="mb-4 text-2xl font-bold text-white">Biblia</h1>
         <div className="mb-4 flex rounded-xl bg-zinc-900 p-1">
           <ModeButton active={modo === 'navegar'} onClick={() => setModo('navegar')} label="Navegar" />
@@ -139,7 +139,7 @@ export function BiblePage() {
           )}
           <button
             type="button"
-            aria-label="Configuración"
+            aria-label="ConfiguraciÃ³n"
             onClick={() => setModo('config')}
             className={`flex flex-1 items-center justify-center rounded-lg py-2 ${modo === 'config' ? 'bg-blue-500' : ''}`}
           >
@@ -213,7 +213,7 @@ export function BiblePage() {
           </div>
 
           <button type="button" onClick={volverAIndice} className="mx-4 mb-4 flex items-center justify-center gap-2 rounded-xl bg-zinc-900 p-3 text-white">
-            <ArrowLeft size={16} /> Volver al Índice
+            <ArrowLeft size={16} /> Volver al Ãndice
           </button>
         </div>
       )}
@@ -392,7 +392,7 @@ function Buscador({ biblia, onResult, onError }: { biblia: Biblia; onResult: (l:
     onError('')
     const match = busqueda.trim().match(/^(.+?)\s+(\d+):(\d+)$/)
     if (!match) {
-      onError('Formato inválido. Ej: Juan 3:16')
+      onError('Formato invÃ¡lido. Ej: Juan 3:16')
       return
     }
     const [, nombreLibro, cap, ver] = match
@@ -406,7 +406,7 @@ function Buscador({ biblia, onResult, onError }: { biblia: Biblia; onResult: (l:
     const caps = getCapitulos(biblia, libro.key)
     const versos = caps[capIndex]
     if (!versos || !versos[verIndex]) {
-      onError('Versículo no encontrado')
+      onError('VersÃ­culo no encontrado')
       return
     }
     onResult(libro, capIndex, [{ verse: verIndex + 1, text: versos[verIndex] }])
@@ -442,7 +442,7 @@ function Favoritos({
   onDelete: (id: number) => void
 }) {
   if (favoritos.length === 0) {
-    return <p className="mt-20 text-center text-gray-500">No tenés versos resaltados</p>
+    return <p className="mt-20 text-center text-gray-500">No tenÃ©s versos resaltados</p>
   }
 
   return (
@@ -501,7 +501,7 @@ function ConfigPanel({ prefs, setPrefs }: { prefs: BiblePreferences; setPrefs: R
         {colorPicker('Color de Fondo', prefs.bgColor, (c) => set('bgColor', c))}
       </div>
 
-      <p className="mb-4 text-xs font-bold uppercase tracking-widest text-zinc-400">Tamaño</p>
+      <p className="mb-4 text-xs font-bold uppercase tracking-widest text-zinc-400">TamaÃ±o</p>
       <div className="mb-4 rounded-2xl bg-zinc-900/60 p-5">
         <div className="mb-2 flex items-center justify-between">
           <span className="text-sm font-semibold uppercase tracking-wider text-zinc-300">Fuente</span>
@@ -539,7 +539,7 @@ function ConfigPanel({ prefs, setPrefs }: { prefs: BiblePreferences; setPrefs: R
           <input
             value={prefs.palabraResaltar}
             onChange={(e) => set('palabraResaltar', e.target.value)}
-            placeholder="Escribí la palabra..."
+            placeholder="EscribÃ­ la palabra..."
             className="w-full rounded-xl bg-zinc-800 px-4 py-3 text-white outline-none placeholder:text-zinc-600"
           />
         )}
@@ -548,11 +548,11 @@ function ConfigPanel({ prefs, setPrefs }: { prefs: BiblePreferences; setPrefs: R
       <p className="mb-4 text-xs font-bold uppercase tracking-widest text-zinc-400">Vista Previa</p>
       <div className="mb-8 overflow-hidden rounded-2xl" style={{ backgroundColor: prefs.bgColor }}>
         <div className="p-5">
-          <p className="mb-2 text-xs text-zinc-500">Génesis 1:1</p>
+          <p className="mb-2 text-xs text-zinc-500">GÃ©nesis 1:1</p>
           <p style={{ color: prefs.textColor, fontSize: prefs.textSize, lineHeight: `${prefs.textSize * 1.7}px` }}>
-            En el principio creó{' '}
+            En el principio creÃ³{' '}
             {prefs.resaltar && prefs.palabraResaltar.trim() ? <mark className="bg-amber-400 text-black"> Dios </mark> : ' Dios '}
-            los cielos y la tierra. Y la tierra estaba desordenada y vacía.
+            los cielos y la tierra. Y la tierra estaba desordenada y vacÃ­a.
           </p>
         </div>
       </div>

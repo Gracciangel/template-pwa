@@ -37,7 +37,7 @@ body,
 
 body {
   margin: 0;
-  background: #000;
+  background: radial-gradient(60rem 30rem at 50% -10%, #7c5cff38, transparent 70%), var(--bg);
   color: #fff;
   font-family: "JetBrains Mono", ui-monospace, monospace;
   -webkit-font-smoothing: antialiased;
