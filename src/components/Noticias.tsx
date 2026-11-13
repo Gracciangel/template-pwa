@@ -266,6 +266,7 @@ function formatFecha(fecha: string) {
 
 function RegistroEventoModal({ noticia, onClose }: { noticia: Noticia; onClose: () => void }) {
   const { usuario } = useAuth()
+  const navigate = useNavigate()
   const [evento, setEvento] = useState<EventoInfo | null>(null)
   const [pagos, setPagos] = useState<PagoConfig[]>([])
   const [yaInscripto, setYaInscripto] = useState(false)
@@ -382,7 +383,7 @@ function RegistroEventoModal({ noticia, onClose }: { noticia: Noticia; onClose: 
             <CheckCircle2 size={48} className="text-green-500" />
             <p className="mt-4 text-lg font-semibold text-white">Te registraste exitosamente</p>
             <div className="mt-6 flex w-full gap-3">
-              <Button variant="purple" className="flex-1" onClick={() => { onClose(); window.location.assign('/events-register') }}>
+              <Button variant="purple" className="flex-1" onClick={() => { onClose(); navigate('/events-register') }}>
                 Ver mi entrada
               </Button>
               <Button variant="ghost" className="flex-1" onClick={onClose}>
@@ -396,7 +397,7 @@ function RegistroEventoModal({ noticia, onClose }: { noticia: Noticia; onClose: 
             <p className="mt-4 text-lg font-bold text-white">Ya estás registrado</p>
             <p className="mt-1 text-sm text-zinc-400">Podés ver tu entrada en Mis Eventos</p>
             <div className="mt-6 flex w-full gap-3">
-              <Button variant="purple" className="flex-1" onClick={() => { onClose(); window.location.assign('/events-register') }}>
+              <Button variant="purple" className="flex-1" onClick={() => { onClose(); navigate('/events-register') }}>
                 Ver mi entrada
               </Button>
               <Button variant="ghost" className="flex-1" onClick={onClose}>

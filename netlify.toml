@@ -9,6 +9,8 @@
   # Vite 8 requiere Node >= 20.19 / 22.12
   NODE_VERSION = "22"
   NPM_FLAGS = "--no-audit --no-fund"
+  # En Netlify la app se sirve en la raíz (GitHub Pages usa /template-pwa/).
+  PUBLIC_BASE = "/"
 
 # SPA: las rutas desconocidas sirven index.html
 # (los archivos estáticos existentes tienen prioridad sobre esta regla)

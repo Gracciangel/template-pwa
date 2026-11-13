@@ -1,4 +1,4 @@
-﻿import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { ArrowLeft, Check, ChevronLeft, ChevronRight, Heart, Search, Settings, Share2, Star, Type } from 'lucide-react'
 import { useAuth } from '../auth/AuthProvider'
 import { Spinner } from '../components/ui/Spinner'
@@ -139,7 +139,7 @@ export function BiblePage() {
           )}
           <button
             type="button"
-            aria-label="ConfiguraciÃ³n"
+            aria-label="Configuración"
             onClick={() => setModo('config')}
             className={`flex flex-1 items-center justify-center rounded-lg py-2 ${modo === 'config' ? 'bg-blue-500' : ''}`}
           >
@@ -213,7 +213,7 @@ export function BiblePage() {
           </div>
 
           <button type="button" onClick={volverAIndice} className="mx-4 mb-4 flex items-center justify-center gap-2 rounded-xl bg-zinc-900 p-3 text-white">
-            <ArrowLeft size={16} /> Volver al Ãndice
+            <ArrowLeft size={16} /> Volver al Índice
           </button>
         </div>
       )}
@@ -392,7 +392,7 @@ function Buscador({ biblia, onResult, onError }: { biblia: Biblia; onResult: (l:
     onError('')
     const match = busqueda.trim().match(/^(.+?)\s+(\d+):(\d+)$/)
     if (!match) {
-      onError('Formato invÃ¡lido. Ej: Juan 3:16')
+      onError('Formato inválido. Ej: Juan 3:16')
       return
     }
     const [, nombreLibro, cap, ver] = match
@@ -406,7 +406,7 @@ function Buscador({ biblia, onResult, onError }: { biblia: Biblia; onResult: (l:
     const caps = getCapitulos(biblia, libro.key)
     const versos = caps[capIndex]
     if (!versos || !versos[verIndex]) {
-      onError('VersÃ­culo no encontrado')
+      onError('Versículo no encontrado')
       return
     }
     onResult(libro, capIndex, [{ verse: verIndex + 1, text: versos[verIndex] }])
@@ -442,7 +442,7 @@ function Favoritos({
   onDelete: (id: number) => void
 }) {
   if (favoritos.length === 0) {
-    return <p className="mt-20 text-center text-gray-500">No tenÃ©s versos resaltados</p>
+    return <p className="mt-20 text-center text-gray-500">No tenés versos resaltados</p>
   }
 
   return (
@@ -501,7 +501,7 @@ function ConfigPanel({ prefs, setPrefs }: { prefs: BiblePreferences; setPrefs: R
         {colorPicker('Color de Fondo', prefs.bgColor, (c) => set('bgColor', c))}
       </div>
 
-      <p className="mb-4 text-xs font-bold uppercase tracking-widest text-zinc-400">TamaÃ±o</p>
+      <p className="mb-4 text-xs font-bold uppercase tracking-widest text-zinc-400">Tamaño</p>
       <div className="mb-4 rounded-2xl bg-zinc-900/60 p-5">
         <div className="mb-2 flex items-center justify-between">
           <span className="text-sm font-semibold uppercase tracking-wider text-zinc-300">Fuente</span>
@@ -539,7 +539,7 @@ function ConfigPanel({ prefs, setPrefs }: { prefs: BiblePreferences; setPrefs: R
           <input
             value={prefs.palabraResaltar}
             onChange={(e) => set('palabraResaltar', e.target.value)}
-            placeholder="EscribÃ­ la palabra..."
+            placeholder="Escribí la palabra..."
             className="w-full rounded-xl bg-zinc-800 px-4 py-3 text-white outline-none placeholder:text-zinc-600"
           />
         )}
@@ -548,11 +548,11 @@ function ConfigPanel({ prefs, setPrefs }: { prefs: BiblePreferences; setPrefs: R
       <p className="mb-4 text-xs font-bold uppercase tracking-widest text-zinc-400">Vista Previa</p>
       <div className="mb-8 overflow-hidden rounded-2xl" style={{ backgroundColor: prefs.bgColor }}>
         <div className="p-5">
-          <p className="mb-2 text-xs text-zinc-500">GÃ©nesis 1:1</p>
+          <p className="mb-2 text-xs text-zinc-500">Génesis 1:1</p>
           <p style={{ color: prefs.textColor, fontSize: prefs.textSize, lineHeight: `${prefs.textSize * 1.7}px` }}>
-            En el principio creÃ³{' '}
+            En el principio creó{' '}
             {prefs.resaltar && prefs.palabraResaltar.trim() ? <mark className="bg-amber-400 text-black"> Dios </mark> : ' Dios '}
-            los cielos y la tierra. Y la tierra estaba desordenada y vacÃ­a.
+            los cielos y la tierra. Y la tierra estaba desordenada y vacía.
           </p>
         </div>
       </div>

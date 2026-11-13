@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth/AuthProvider'
 import { Button } from '../components/ui/Button'
@@ -22,11 +22,11 @@ export function LoginPage() {
   const handleAuth = async () => {
     const mail = email.trim().toLowerCase()
     if (!mail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
-      setError('Email invÃ¡lido')
+      setError('Email inválido')
       return
     }
     if (!pass || pass.length < 6) {
-      setError('ContraseÃ±a invÃ¡lida')
+      setError('Contraseña inválida')
       return
     }
     setLoading(true)
@@ -50,9 +50,11 @@ export function LoginPage() {
   const handleGoogle = async () => {
     setError(undefined)
     setLoading(true)
-    const res = await signInWithGoogle(`${window.location.origin}/auth/callback`)
+    const res = await signInWithGoogle(
+      `${window.location.origin}${import.meta.env.BASE_URL}auth/callback`,
+    )
     if (res.code !== 200 || !res.result) {
-      setError(res.msj || 'Error al iniciar sesiÃ³n con Google')
+      setError(res.msj || 'Error al iniciar sesión con Google')
       setLoading(false)
       return
     }
@@ -66,14 +68,14 @@ export function LoginPage() {
 
         <div className="rounded-2xl bg-zinc-900 p-6">
           <Input label="Email" placeholder="tu@email.com" type="email" value={email} onChange={(v) => { setError(undefined); setEmail(v) }} />
-          <Input label="ContraseÃ±a" type="password" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" value={pass} onChange={(v) => { setError(undefined); setPass(v) }} />
+          <Input label="Contraseña" type="password" placeholder="••••••••" value={pass} onChange={(v) => { setError(undefined); setPass(v) }} />
 
           {error && (
             <div className="mb-4 rounded-xl border border-red-900/50 bg-red-900/30 p-3 text-center text-sm text-red-400">{error}</div>
           )}
 
           <Button variant="purple" className="w-full" loading={loading} disabled={!email || !pass} onClick={handleAuth}>
-            Iniciar SesiÃ³n
+            Iniciar Sesión
           </Button>
 
           <div className="my-4 flex items-center">
@@ -94,7 +96,7 @@ export function LoginPage() {
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-4 pb-6">
-          <p className="text-zinc-500">Â¿No tenÃ©s una cuenta?</p>
+          <p className="text-zinc-500">¿No tenés una cuenta?</p>
           <Link to="/register" className="rounded-xl border border-purple-500/30 px-10 py-3 font-bold text-purple-400 hover:bg-purple-500/10">
             Crear cuenta
           </Link>
@@ -104,7 +106,7 @@ export function LoginPage() {
       {loading && (
         <div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-3 bg-black/60 backdrop-blur">
           <Spinner size={44} />
-          <p className="text-zinc-300">Iniciando sesiÃ³n...</p>
+          <p className="text-zinc-300">Iniciando sesión...</p>
         </div>
       )}
     </div>

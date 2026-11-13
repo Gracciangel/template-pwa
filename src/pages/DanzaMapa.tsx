@@ -1,4 +1,4 @@
-﻿import { useCallback, useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ArrowLeft, Calendar, ChevronRight, Lock, MapPin, Plus, Trash2, Users, X } from 'lucide-react'
 import { useAuth } from '../auth/AuthProvider'
@@ -44,7 +44,7 @@ export function DanzaMapaPage() {
     return (
       <div className="flex min-h-[70vh] flex-col items-center justify-center px-6">
         <Lock size={40} className="text-zinc-600" />
-        <p className="mt-4 text-center text-lg text-zinc-400">No tenÃ©s acceso a este mapa</p>
+        <p className="mt-4 text-center text-lg text-zinc-400">No tenés acceso a este mapa</p>
         <button
           type="button"
           onClick={routerBack}
@@ -79,7 +79,7 @@ export function DanzaMapaPage() {
           )}
         </div>
         {esLiderDanza && (
-          <span className="rounded bg-green-900/30 px-2 py-1 text-xs text-green-400">LÃ­der</span>
+          <span className="rounded bg-green-900/30 px-2 py-1 text-xs text-green-400">Líder</span>
         )}
       </div>
 
@@ -98,7 +98,7 @@ export function DanzaMapaPage() {
             <>
               <button
                 type="button"
-                aria-label="Agregar bailarin"
+                aria-label="Agregar bailarín"
                 onClick={async () => {
                   await d.fetchDisponibles()
                   d.setModalAgregar(true)
@@ -119,7 +119,7 @@ export function DanzaMapaPage() {
         </>
       )}
 
-      {/* Selector de itinerario / canciÃ³n */}
+      {/* Selector de itinerario / canción */}
       {!d.cancionActual && (
         <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/70 px-6 backdrop-blur-sm">
           <div className="max-h-[75vh] w-full max-w-md overflow-y-auto rounded-2xl bg-zinc-900 p-6">
@@ -135,7 +135,7 @@ export function DanzaMapaPage() {
                 </button>
               ) : null}
               <h2 className="flex-1 text-lg font-bold text-white">
-                {d.cronogramaSel ? 'Seleccionar canciÃ³n' : 'Seleccionar itinerario'}
+                {d.cronogramaSel ? 'Seleccionar canción' : 'Seleccionar itinerario'}
               </h2>
               <button
                 type="button"
@@ -190,11 +190,11 @@ export function DanzaMapaPage() {
                       </span>
                     </span>
                     <span className="mb-1 block text-xs text-zinc-500">
-                      {canciones.length} canciones a {c.informante}
+                      {canciones.length} canciones · {c.informante}
                     </span>
                     {canciones.length > 0 && (
                       <span className="line-clamp-2 block text-sm leading-5 text-zinc-400">
-                        {canciones.join('A· ')}
+                        {canciones.join(' · ')}
                       </span>
                     )}
                   </button>
@@ -205,7 +205,7 @@ export function DanzaMapaPage() {
         </div>
       )}
 
-      {/* Detalle del bailarÃ­n */}
+      {/* Detalle del bailarín */}
       {d.selectedUser && (
         <div
           className="fixed inset-0 z-50 flex items-end justify-center bg-black/70 backdrop-blur-sm"
@@ -245,7 +245,7 @@ export function DanzaMapaPage() {
                   className="mb-3 flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-800 py-4 font-semibold text-purple-400 hover:bg-zinc-700"
                 >
                   <MapPin size={16} />
-                  Mover posiciÃ³n
+                  Mover posición
                 </button>
                 <button
                   type="button"
@@ -261,7 +261,7 @@ export function DanzaMapaPage() {
         </div>
       )}
 
-      {/* Agregar bailarÃ­n */}
+      {/* Agregar bailarín */}
       {d.modalAgregar && (
         <div
           className="fixed inset-0 z-50 flex items-end justify-center bg-black/70 backdrop-blur-sm"
@@ -272,7 +272,7 @@ export function DanzaMapaPage() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mb-5 flex items-center justify-between">
-              <h2 className="text-lg font-bold text-white">Agregar bailarÃ­n</h2>
+              <h2 className="text-lg font-bold text-white">Agregar bailarín</h2>
               <button
                 type="button"
                 aria-label="Cerrar"
@@ -287,7 +287,7 @@ export function DanzaMapaPage() {
               <div className="flex flex-col items-center py-12">
                 <Users size={30} className="text-zinc-600" />
                 <p className="mt-3 text-center text-zinc-500">
-                  No hay bailarines disponibles
+                  No hay más bailarines disponibles
                 </p>
               </div>
             ) : (
@@ -317,7 +317,7 @@ export function DanzaMapaPage() {
       {d.modalConfirmar && (
         <Modal
           title="Finalizar mapa"
-          description={`Se enviarÃ¡ una notificaciÃ³n a los ${d.positions.length} bailarÃ­n(es) posicionados para "${d.cancionActual}" del ${d.cronogramaSel?.fecha_evento ?? ''}.`}
+          description={`Se enviará una notificación a los ${d.positions.length} bailarín(es) posicionados para "${d.cancionActual}" del ${d.cronogramaSel?.fecha_evento ?? ''}.`}
           type="info"
           onClose={{ action: () => d.setModalConfirmar(false), label: 'Cancelar' }}
           onConfirm={{
@@ -330,7 +330,7 @@ export function DanzaMapaPage() {
       {d.alertaPocos && (
         <Modal
           title="Pocos bailarines"
-          description="DebÃ©s agregar al menos 2 bailarines en distintos puntos para finalizar el mapa."
+          description="Debés agregar al menos 2 bailarines en distintos puntos para finalizar el mapa."
           type="warning"
           onClose={{ action: () => d.setAlertaPocos(false), label: 'Entendido' }}
         />

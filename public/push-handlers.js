@@ -1,5 +1,13 @@
 /* Handlers de Web Push para el service worker (inyectado por vite-plugin-pwa). */
 
+// El SW puede vivir en una subruta (por ej. /template-pwa/), así que las URLs
+// de las notificaciones se resuelven contra el scope de la app.
+function urlEnScope(ruta) {
+  var scope = self.registration.scope
+  if (!ruta) return scope
+  return new URL(String(ruta).replace(/^\/+/, ''), scope).href
+}
+
 function destinoNotificacion(data) {
   if (data && typeof data.url === 'string' && data.url) return data.url
   var screen = data && typeof data.datos?.screen === 'string' ? data.datos.screen : ''
@@ -22,13 +30,14 @@ self.addEventListener('push', function (event) {
   }
 
   var title = data.title || 'Tiempo de Gracia'
+  var icono = urlEnScope('icons/icon-192.png')
   var options = {
     body: data.body || '',
-    icon: data.icon || '/icons/icon-192.png',
-    badge: data.badge || '/icons/icon-192.png',
+    icon: data.icon ? urlEnScope(data.icon) : icono,
+    badge: data.badge ? urlEnScope(data.badge) : icono,
     tag: data.tipo || 'tdg',
     renotify: true,
-    data: { url: destinoNotificacion(data), datos: data.datos || {} },
+    data: { url: urlEnScope(destinoNotificacion(data)), datos: data.datos || {} },
   }
 
   event.waitUntil(self.registration.showNotification(title, options))
@@ -36,7 +45,9 @@ self.addEventListener('push', function (event) {
 
 self.addEventListener('notificationclick', function (event) {
   event.notification.close()
-  var url = (event.notification.data && event.notification.data.url) || '/notificaciones'
+  var url =
+    (event.notification.data && event.notification.data.url) ||
+    urlEnScope('/notificaciones')
 
   event.waitUntil(
     self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(function (clientList) {

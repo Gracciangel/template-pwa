@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { ChevronRight } from 'lucide-react'
 import { Modal } from '../components/ui/Modal'
 
@@ -87,7 +87,7 @@ export function SocialPage() {
       {showModal && (
         <Modal
           type="info"
-          title="Proximante"
+          title="Próximamente"
           description={`Próximamente estará disponible el enlace a ${social}.`}
           onClose={{ action: () => setShowModal(false), label: 'Cerrar' }}
         />

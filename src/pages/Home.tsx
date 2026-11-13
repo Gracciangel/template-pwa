@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAuth } from '../auth/AuthProvider'
 import { Countdown } from '../components/Countdown'
 import { VersiculoDelDiaCard } from '../components/VersiculoDelDia'
@@ -26,7 +26,7 @@ export function HomePage() {
     )
   }
 
-  const nombre = usuario ? usuario.nombre_usuario.charAt(0).toUpperCase() + usuario.nombre_usuario.slice(1).toLowerCase() : ''
+  const nombre = usuario ? usuario.nombre.charAt(0).toUpperCase() + usuario.nombre.slice(1).toLowerCase() : ''
 
   return (
     <div className="animate-fade-in">

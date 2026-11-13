@@ -1,9 +1,13 @@
+import { copyFileSync, existsSync } from 'node:fs'
+import { resolve } from 'node:path'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
-const base = '/template-pwa/'
+// GitHub Pages sirve el sitio en /template-pwa/. Netlify lo sirve en la raíz
+// (PUBLIC_BASE="/" en netlify.toml). El mismo build se adapta con esta variable.
+const base = process.env.PUBLIC_BASE ?? '/template-pwa/'
 
 export default defineConfig({
   base,
@@ -44,5 +48,14 @@ export default defineConfig({
       },
       devOptions: { enabled: false },
     }),
+    {
+      // GitHub Pages no reescribe rutas SPA: copiamos index.html a 404.html
+      // para que un reload en /groups (etc.) siga cargando la app.
+      name: 'github-pages-404',
+      closeBundle() {
+        const index = resolve('dist/index.html')
+        if (existsSync(index)) copyFileSync(index, resolve('dist/404.html'))
+      },
+    },
   ],
 })

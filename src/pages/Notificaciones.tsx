@@ -1,4 +1,4 @@
-﻿import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, BellOff, Trash2 } from 'lucide-react'
 import { useAuth } from '../auth/AuthProvider'
@@ -79,7 +79,7 @@ export function NotificacionesPage() {
       ) : items.length === 0 ? (
         <div className="flex flex-col items-center py-20">
           <BellOff size={40} className="text-zinc-600" />
-          <p className="mt-4 text-center text-zinc-500">No tenÃ©s notificaciones</p>
+          <p className="mt-4 text-center text-zinc-500">No tenés notificaciones</p>
         </div>
       ) : (
         <div className="px-4">
@@ -109,11 +109,11 @@ export function NotificacionesPage() {
             <div className="mb-4 flex items-start justify-between gap-4">
               <h2 className="flex-1 text-2xl font-bold text-white">{seleccion.titulo}</h2>
               <button type="button" onClick={() => setSeleccion(null)} className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-700 text-sm text-zinc-400 hover:text-white">
-                âœ•
+                ✕
               </button>
             </div>
             <p className="whitespace-pre-line text-xl leading-relaxed text-zinc-300">{seleccion.cuerpo}</p>
-            <p className="mt-6 text-base text-zinc-500">NotificaciÃ³n recibida el {formatFecha(seleccion.created_at)}</p>
+            <p className="mt-6 text-base text-zinc-500">Notificación recibida el {formatFecha(seleccion.created_at)}</p>
           </div>
         </div>
       )}

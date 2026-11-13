@@ -10,7 +10,7 @@ export function cargarBiblia(): Promise<Biblia> {
   if (cache) return Promise.resolve(cache)
   if (loading) return loading
 
-  loading = fetch('/data/biblia-rv1960.json')
+  loading = fetch(`${import.meta.env.BASE_URL}data/biblia-rv1960.json`)
     .then((res) => {
       if (!res.ok) throw new Error(`No se pudo cargar la Biblia (${res.status})`)
       return res.json() as Promise<Biblia>

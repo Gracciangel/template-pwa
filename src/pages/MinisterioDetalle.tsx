@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import {
   ArrowLeft,
@@ -182,7 +182,7 @@ export function MinisterioDetallePage() {
                 {m.nombre} {m.apellido}
               </span>
               {m.id === usuario?.id && (
-                <span className="ml-auto text-xs font-bold text-green-400">TÃº</span>
+                <span className="ml-auto text-xs font-bold text-green-400">Tú</span>
               )}
             </div>
           ))

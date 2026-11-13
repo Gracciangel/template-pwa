@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Minus, Plus } from 'lucide-react'
 import { useAuth } from '../auth/AuthProvider'
@@ -46,7 +46,7 @@ export function CancionDetallePage() {
   if (!cancion) {
     return (
       <div className="flex min-h-[70vh] flex-col items-center justify-center px-6">
-        <p className="text-gray-400">CanciÃ³n no encontrada</p>
+        <p className="text-gray-400">Canción no encontrada</p>
         <button
           type="button"
           onClick={() => navigate('/profile')}
