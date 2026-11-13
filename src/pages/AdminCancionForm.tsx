@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+﻿import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { useAuth } from '../auth/AuthProvider'
@@ -81,7 +81,7 @@ export function AdminCancionFormPage() {
         )
     setGuardando(false)
     if (res.code === 200) navigate(-1)
-    else setError(res.msj || `Error al ${esEdicion ? 'guardar' : 'crear'} canción`)
+    else setError(res.msj || `Error al ${esEdicion ? 'guardar' : 'crear'} canciÃ³n`)
   }
 
   if (cargando) {
@@ -94,7 +94,7 @@ export function AdminCancionFormPage() {
   }
 
   return (
-    <div className="pt-safe px-6 pb-24 pt-16">
+    <div className="px-6 pb-24 pt-16">
       <button
         type="button"
         onClick={() => navigate(-1)}
@@ -105,14 +105,14 @@ export function AdminCancionFormPage() {
       </button>
 
       <h1 className="mb-6 text-2xl font-bold text-white">
-        {editId ? 'Editar canción' : `Nueva canción — ${nombre}`}
+        {editId ? 'Editar canciÃ³n' : `Nueva canciÃ³n â€” ${nombre}`}
       </h1>
 
-      <label className="mb-1 block text-sm text-zinc-400">Título</label>
+      <label className="mb-1 block text-sm text-zinc-400">TÃ­tulo</label>
       <input
         value={titulo}
         onChange={(e) => setTitulo(e.target.value)}
-        placeholder="Título"
+        placeholder="TÃ­tulo"
         className="mb-3 w-full rounded-xl bg-zinc-800 px-4 py-3 text-white outline-none placeholder:text-zinc-600"
       />
 
@@ -156,7 +156,7 @@ export function AdminCancionFormPage() {
         className="mb-10 mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 py-3 font-semibold text-white hover:bg-blue-500 disabled:opacity-60"
       >
         {guardando && <Spinner size={20} />}
-        {guardando ? 'Guardando...' : editId ? 'Guardar cambios' : 'Crear canción'}
+        {guardando ? 'Guardando...' : editId ? 'Guardar cambios' : 'Crear canciÃ³n'}
       </button>
 
       {error && (

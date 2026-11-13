@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+﻿import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { QRCodeSVG } from 'qrcode.react'
 import { ArrowLeft, CalendarDays, CalendarX, CheckCircle2, ChevronRight, Clock, RefreshCw, Tag, Ticket, XCircle } from 'lucide-react'
@@ -192,7 +192,7 @@ export function EventsRegisterPage() {
   }
 
   return (
-    <div className="pt-safe">
+    <div className="">
       <div className="flex items-center px-4 py-3">
         <button
           type="button"
@@ -255,7 +255,7 @@ export function EventsRegisterPage() {
                     </div>
                     <div className="mt-1.5 flex items-center gap-2 text-sm text-zinc-300">
                       <Clock size={13} className="text-zinc-400" />
-                      {reg.evento?.hora_evento || '—'}
+                      {reg.evento?.hora_evento || 'â€”'}
                     </div>
                   </div>
                 </div>
@@ -300,7 +300,7 @@ export function EventsRegisterPage() {
           <div className="rounded-xl bg-white p-4">
             <QRCodeSVG value={JSON.stringify(parseTicketData(selected))} size={Math.min(320, window.innerWidth * 0.75)} />
           </div>
-          <p className="mt-6 text-center text-sm text-zinc-400">Tocá en cualquier parte para cerrar</p>
+          <p className="mt-6 text-center text-sm text-zinc-400">TocÃ¡ en cualquier parte para cerrar</p>
         </div>
       )}
     </div>

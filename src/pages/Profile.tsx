@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+﻿import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Bell, Building2, Users } from 'lucide-react'
 import { useAuth } from '../auth/AuthProvider'
@@ -29,7 +29,7 @@ export function ProfilePage() {
   const apellido = `${usuario.apellido?.[0]?.toUpperCase() ?? ''}${usuario.apellido?.slice(1) ?? ''}`
 
   return (
-    <div className="pt-safe">
+    <div className="">
       <div className="relative px-6 pt-20">
         <Link to="/notificaciones" aria-label="Notificaciones" className="absolute right-12 top-3 text-white">
           <span className="relative inline-block">

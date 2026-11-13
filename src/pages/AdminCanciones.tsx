@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+﻿import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { ArrowLeft, Pencil, Trash2 } from 'lucide-react'
 import { useAuth } from '../auth/AuthProvider'
@@ -45,7 +45,7 @@ export function AdminCancionesPage() {
   const queryBase = `id=${encodeURIComponent(id)}&nombre=${encodeURIComponent(nombre)}`
 
   return (
-    <div className="pt-safe px-6 pb-24 pt-16">
+    <div className="px-6 pb-24 pt-16">
       <div className="mb-6 flex items-center justify-between">
         <button
           type="button"
@@ -76,7 +76,7 @@ export function AdminCancionesPage() {
             <div className="min-w-0 flex-1">
               <p className="font-bold text-white">{c.titulo}</p>
               <p className="text-sm text-zinc-400">
-                {c.autor} · {c.tono_original}
+                {c.autor} Â· {c.tono_original}
               </p>
             </div>
             <Link
@@ -101,7 +101,7 @@ export function AdminCancionesPage() {
       {confirmDelete && (
         <Modal
           title="Eliminar"
-          description={`¿Eliminar "${confirmDelete.titulo}"?`}
+          description={`Â¿Eliminar "${confirmDelete.titulo}"?`}
           type="warning"
           onClose={{ action: () => setConfirmDelete(null), label: 'Cancelar' }}
           onConfirm={{ action: () => void confirmarEliminar(), label: 'Eliminar', destructive: true }}

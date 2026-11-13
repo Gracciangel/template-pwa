@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+﻿import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, Building2, RefreshCw } from 'lucide-react'
 import { useAuth } from '../auth/AuthProvider'
@@ -20,7 +20,7 @@ export function MinisteriosPage() {
   }, [refrescarEntidades])
 
   return (
-    <div className="pt-safe relative px-6 pb-10 pt-16">
+    <div className="relative px-6 pb-10 pt-16">
       <button
         type="button"
         aria-label="Volver"
@@ -61,9 +61,9 @@ export function MinisteriosPage() {
           ))
         ) : (
           <div className="mt-4 flex flex-col items-center gap-2 text-center">
-            <p className="text-gray-400">No estás asignado a ningún Ministerio.</p>
+            <p className="text-gray-400">No estÃ¡s asignado a ningÃºn Ministerio.</p>
             <p className="px-6 text-gray-400">
-              Cuando te asignen vas a poder ver la información del ministerio acá.
+              Cuando te asignen vas a poder ver la informaciÃ³n del ministerio acÃ¡.
             </p>
           </div>
         )}

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+﻿import { useCallback, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import {
   ChevronDown,
@@ -99,14 +99,14 @@ function AudioScreen({ type, title }: { type: 'M' | 'P'; title: string }) {
         setTimeout(() => setFeedback(null), 2000)
       }
     } catch {
-      /* el usuario canceló el share */
+      /* el usuario cancelÃ³ el share */
     }
   }, [])
 
   const coverIndex = a.currentAudio ? a.audios.findIndex((x) => x.id === a.currentAudio?.id) : 0
 
   return (
-    <div className="pt-safe pb-24">
+    <div className="pb-24">
       {a.error && (
         <Modal
           title="Error"
@@ -156,7 +156,7 @@ function AudioScreen({ type, title }: { type: 'M' | 'P'; title: string }) {
 
           <div className="mb-4">
             <h1 className="truncate text-2xl font-bold text-white">{a.currentAudio.titulo}</h1>
-            <p className="mt-1 text-base text-zinc-400">{type === 'M' ? 'Música' : 'Prédicas'}</p>
+            <p className="mt-1 text-base text-zinc-400">{type === 'M' ? 'Música' : 'Predicas'}</p>
           </div>
 
           <div className="mb-6">
@@ -289,7 +289,7 @@ function AudioScreen({ type, title }: { type: 'M' | 'P'; title: string }) {
 export function AudiosPage() {
   const [searchParams] = useSearchParams()
   const type = searchParams.get('type') === 'M' ? 'M' : 'P'
-  return <AudioScreen type={type} title={type === 'M' ? 'Música' : 'Prédicas'} />
+  return <AudioScreen type={type} title={type === 'M' ? 'Música' : 'Predicas'} />
 }
 
 export function MusicaPage() {

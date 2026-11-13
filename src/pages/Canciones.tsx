@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+﻿import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { ArrowLeft, Music, RefreshCw } from 'lucide-react'
 import { useAuth } from '../auth/AuthProvider'
@@ -47,7 +47,7 @@ export function CancionesPage() {
   }, [cargar])
 
   return (
-    <div className="pt-safe px-6 pb-24 pt-16">
+    <div className="px-6 pb-24 pt-16">
       <div className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Music size={32} className="text-white" />

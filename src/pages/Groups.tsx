@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+﻿import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, Building2, RefreshCw, Users } from 'lucide-react'
 import { useAuth } from '../auth/AuthProvider'
@@ -21,7 +21,7 @@ export function GroupsPage() {
   }, [refrescarEntidades])
 
   return (
-    <div className="pt-safe px-6 pb-10 pt-16">
+    <div className="px-6 pb-10 pt-16">
       <button type="button" onClick={() => navigate(-1)} className="absolute left-6 top-4 text-white">
         <ArrowLeft size={24} />
       </button>
@@ -50,8 +50,8 @@ export function GroupsPage() {
           ))
         ) : (
           <div className="mt-4 flex flex-col items-center gap-2 text-center">
-            <p className="text-gray-400">No estás asignado a ningún grupo.</p>
-            <p className="px-6 text-gray-400">Cuando te asignen vas a poder ver la información del grupo acá.</p>
+            <p className="text-gray-400">No estÃ¡s asignado a ningÃºn grupo.</p>
+            <p className="px-6 text-gray-400">Cuando te asignen vas a poder ver la informaciÃ³n del grupo acÃ¡.</p>
           </div>
         )}
       </div>

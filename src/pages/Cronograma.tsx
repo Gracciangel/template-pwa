@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+﻿import { useCallback, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ArrowLeft, CheckCircle2, Plus, X } from 'lucide-react'
 import { useAuth } from '../auth/AuthProvider'
@@ -74,7 +74,7 @@ export function CronogramaPage() {
     } else {
       setAlerta({
         titulo: 'Error',
-        msj: res.msj || 'Ocurrió un error al eliminar el cronograma.',
+        msj: res.msj || 'OcurriÃ³ un error al eliminar el cronograma.',
       })
     }
   }, [confirmarEliminar, cargarCronogramas, setConfirmarEliminar])
@@ -84,18 +84,18 @@ export function CronogramaPage() {
     if (res?.code === 400) {
       setAlerta({
         titulo: 'Sin canciones',
-        msj: res.msj || 'Debés agregar al menos una canción para guardar el cronograma.',
+        msj: res.msj || 'DebÃ©s agregar al menos una canciÃ³n para guardar el cronograma.',
       })
     } else if (res?.code && res.code !== 200 && res.code !== 300) {
       setAlerta({
         titulo: 'Error',
-        msj: res.msj || 'Ocurrió un error al guardar el cronograma.',
+        msj: res.msj || 'OcurriÃ³ un error al guardar el cronograma.',
       })
     }
   }, [handleGuardar])
 
   return (
-    <div className="pt-safe px-4 pb-10 pt-6">
+    <div className="px-4 pb-10 pt-6">
       {alerta && (
         <Modal
           title={alerta.titulo}
@@ -108,10 +108,10 @@ export function CronogramaPage() {
       {reemplazoInfo.visible && reemplazoInfo.reemplazado && (
         <Modal
           title="Reemplazar cronograma"
-          description={`Ya hay 2 cronogramas en esta semana. Al guardar, se reemplazará el del ${formatearFecha(
+          description={`Ya hay 2 cronogramas en esta semana. Al guardar, se reemplazarÃ¡ el del ${formatearFecha(
             reemplazoInfo.reemplazado.fecha_evento,
             { day: 'numeric', month: 'long', year: 'numeric' },
-          )} y se borrarán los datos de danza asociados. ¿Deseas continuar?`}
+          )} y se borrarÃ¡n los datos de danza asociados. Â¿Deseas continuar?`}
           type="warning"
           onClose={{
             action: () => setReemplazoInfo({ visible: false, reemplazado: null }),
@@ -132,10 +132,10 @@ export function CronogramaPage() {
       {confirmarEliminar && (
         <Modal
           title="Eliminar cronograma"
-          description={`¿Estás seguro de eliminar el cronograma del ${formatearFecha(
+          description={`Â¿EstÃ¡s seguro de eliminar el cronograma del ${formatearFecha(
             confirmarEliminar.fecha_evento,
             { day: 'numeric', month: 'long', year: 'numeric' },
-          )}? También se eliminarán las posiciones de danza asociadas.`}
+          )}? TambiÃ©n se eliminarÃ¡n las posiciones de danza asociadas.`}
           type="warning"
           onClose={{ action: () => setConfirmarEliminar(null), label: 'Cancelar' }}
           onConfirm={{ action: () => void handleEliminar(), label: 'Eliminar', destructive: true }}
@@ -221,7 +221,7 @@ export function CronogramaPage() {
                       setInputCancion('')
                     }
                   }}
-                  placeholder="Nombre de la canción"
+                  placeholder="Nombre de la canciÃ³n"
                   className="flex-1 bg-transparent py-2 text-white outline-none placeholder:text-zinc-600"
                 />
                 <button
@@ -251,7 +251,7 @@ export function CronogramaPage() {
                 className="mb-4 flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-zinc-600 bg-zinc-800/50 py-3 text-sm font-semibold text-purple-400 hover:bg-zinc-800"
               >
                 <Plus size={14} />
-                Agregar canción
+                Agregar canciÃ³n
               </button>
             )}
 

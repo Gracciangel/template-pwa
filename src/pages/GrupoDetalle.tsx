@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+﻿import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import {
   ArrowLeft,
@@ -115,8 +115,8 @@ export function GrupoDetallePage() {
       if (elegida <= hoy) return
       if (!esLider) {
         setAlerta({
-          titulo: 'Solo líderes',
-          msj: 'Solo el líder del grupo puede asignar predicadores.',
+          titulo: 'Solo lÃ­deres',
+          msj: 'Solo el lÃ­der del grupo puede asignar predicadores.',
         })
         return
       }
@@ -191,7 +191,7 @@ export function GrupoDetallePage() {
       setReprogMensaje('')
       setAlerta({
         titulo: 'Solicitud enviada',
-        msj: 'El líder del grupo recibirá tu solicitud de reprogramación.',
+        msj: 'El lÃ­der del grupo recibirÃ¡ tu solicitud de reprogramaciÃ³n.',
       })
     } else {
       setAlerta({ titulo: 'Error', msj: res.msj || 'Error al enviar solicitud' })
@@ -204,7 +204,7 @@ export function GrupoDetallePage() {
   )
 
   return (
-    <div className="pt-safe px-6 pb-24 pt-16">
+    <div className="px-6 pb-24 pt-16">
       {alerta && (
         <Modal
           title={alerta.titulo}
@@ -217,7 +217,7 @@ export function GrupoDetallePage() {
       {confirmarEliminar && (
         <Modal
           title="Eliminar"
-          description={`¿Eliminar la prédica del ${formatearFecha(confirmarEliminar.fecha_evento, {
+          description={`Â¿Eliminar la prÃ©dica del ${formatearFecha(confirmarEliminar.fecha_evento, {
             day: 'numeric',
             month: 'long',
           })}?`}
@@ -232,7 +232,7 @@ export function GrupoDetallePage() {
           title="Fecha ocupada"
           description={`La fecha ${capitalizar(
             formatearFecha(selectedDate, { weekday: 'long', day: 'numeric', month: 'long' }),
-          )} ya tiene asignado a ${parsePredicador(reemplazoInfo.existente.contenido)} como predicador. ¿Deseas reemplazarlo?`}
+          )} ya tiene asignado a ${parsePredicador(reemplazoInfo.existente.contenido)} como predicador. Â¿Deseas reemplazarlo?`}
           type="warning"
           onClose={{
             action: () => {
@@ -257,7 +257,7 @@ export function GrupoDetallePage() {
               <>
                 <CalendarDays size={36} className="mx-auto mb-4 text-amber-500" />
                 <h2 className="mb-1 text-center text-lg font-bold text-white">
-                  Solicitar reprogramación
+                  Solicitar reprogramaciÃ³n
                 </h2>
                 <p className="mb-2 text-center text-sm text-zinc-400">
                   {capitalizar(
@@ -275,7 +275,7 @@ export function GrupoDetallePage() {
                 <textarea
                   value={reprogMensaje}
                   onChange={(e) => setReprogMensaje(e.target.value)}
-                  placeholder="Escribí el motivo de la reprogramación..."
+                  placeholder="EscribÃ­ el motivo de la reprogramaciÃ³n..."
                   className="mb-6 min-h-[100px] w-full resize-none rounded-xl bg-zinc-800 p-4 text-white outline-none placeholder:text-zinc-600"
                 />
                 <div className="flex gap-3">
@@ -351,7 +351,7 @@ export function GrupoDetallePage() {
                       {m.nombre} {m.apellido}
                     </span>
                     <span className="block text-xs text-zinc-500">
-                      {m.role || (m.role_id === 1 ? 'Líder' : 'Miembro')}
+                      {m.role || (m.role_id === 1 ? 'LÃ­der' : 'Miembro')}
                     </span>
                   </span>
                 </button>
@@ -367,7 +367,7 @@ export function GrupoDetallePage() {
             {guardando ? (
               <div className="flex flex-col items-center gap-3">
                 <p className="text-lg font-semibold text-white">Guardando...</p>
-                <p className="text-sm text-zinc-400">Asignando predicador, por favor esperá.</p>
+                <p className="text-sm text-zinc-400">Asignando predicador, por favor esperÃ¡.</p>
               </div>
             ) : (
               <>
@@ -429,14 +429,14 @@ export function GrupoDetallePage() {
       <div className="mb-8 flex items-center gap-3">
         <Users size={32} className="text-white" />
         <h1 className="text-2xl font-bold text-white">{nombre}</h1>
-        {esLider && <span className="text-xs font-bold text-green-400">(Líder)</span>}
+        {esLider && <span className="text-xs font-bold text-green-400">(LÃ­der)</span>}
       </div>
 
       {esLider && esPredicas && (
         <>
-          <h2 className="mb-1 text-2xl font-bold text-white">Cronograma de Prédicas</h2>
+          <h2 className="mb-1 text-2xl font-bold text-white">Cronograma de PrÃ©dicas</h2>
           <p className="mb-4 text-sm text-zinc-400">
-            Seleccioná una fecha futura para asignar un predicador.
+            SeleccionÃ¡ una fecha futura para asignar un predicador.
           </p>
 
           <MonthCalendar onSelect={handleDateChange} minDate={new Date()} className="mb-6" />
@@ -460,7 +460,7 @@ export function GrupoDetallePage() {
             </div>
           ) : misPredicas.length === 0 ? (
             <p className="py-8 text-center text-zinc-500">
-              No tenés fechas programadas para predicar.
+              No tenÃ©s fechas programadas para predicar.
             </p>
           ) : (
             misPredicas.map((c) => {
@@ -496,7 +496,7 @@ export function GrupoDetallePage() {
 
                   {c.observaciones ? (
                     <div className="rounded-xl bg-zinc-800/50 px-4 py-3">
-                      <p className="mb-1 text-xs text-zinc-400">Motivo de reprogramación:</p>
+                      <p className="mb-1 text-xs text-zinc-400">Motivo de reprogramaciÃ³n:</p>
                       <p className="text-sm text-zinc-300">{c.observaciones}</p>
                     </div>
                   ) : puede ? (
@@ -509,12 +509,12 @@ export function GrupoDetallePage() {
                       className="flex w-full items-center justify-center gap-2 rounded-xl bg-green-600 py-3 font-semibold text-white hover:bg-green-500"
                     >
                       <ArrowLeftRight size={14} />
-                      Pedir reprogramación
+                      Pedir reprogramaciÃ³n
                     </button>
                   ) : (
                     <div className="flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-800/30 py-3 font-semibold text-zinc-600">
                       <Lock size={14} />
-                      Reprogramación no disponible
+                      ReprogramaciÃ³n no disponible
                     </div>
                   )}
                 </div>

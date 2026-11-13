@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+﻿import { useCallback, useEffect, useState } from 'react'
 import { Plus, X } from 'lucide-react'
 import { Modal } from '../components/ui/Modal'
 import { STORAGE_KEYS, storageGet, storageSet } from '../lib/storage'
@@ -100,7 +100,7 @@ export function NotesPage() {
   }
 
   return (
-    <div className="pt-safe flex min-h-[75vh] flex-col pb-24">
+    <div className="flex min-h-[75vh] flex-col pb-24">
       <div className="flex items-center justify-between border-b border-zinc-800 px-5 pb-3 pt-4">
         <h1 className="text-2xl font-bold text-white">Mi cuaderno</h1>
         <button
@@ -116,7 +116,7 @@ export function NotesPage() {
       {notas.length === 0 ? (
         <div className="flex flex-1 flex-col items-center justify-center px-6">
           <p className="whitespace-pre-line text-center text-xl leading-7 text-zinc-500">
-            No tenés notas todavía.{'\n'}¡Creá una!
+            No tenes notas guardadas.{"\n"}Creá una nueva nota para empezar a escribir.
           </p>
         </div>
       ) : (
@@ -160,7 +160,7 @@ export function NotesPage() {
       )}
 
       {modalVisible && (
-        <div className="fixed inset-0 z-50 flex flex-col bg-black">
+        <div className="fixed inset-0 z-50 flex flex-col bg-black mt-[5px]">
           <div className="flex items-center justify-between border-b border-zinc-800 px-5 pb-3 pt-4">
             <button type="button" onClick={cerrarModal} className="text-base text-zinc-500">
               Cancelar
@@ -179,14 +179,14 @@ export function NotesPage() {
           <input
             value={titulo}
             onChange={(e) => setTitulo(e.target.value)}
-            placeholder="Título"
+            placeholder="Titulo"
             maxLength={100}
             className="border-b border-zinc-800 bg-transparent px-5 py-4 text-xl font-bold text-white outline-none placeholder:text-zinc-600"
           />
           <textarea
             value={contenido}
             onChange={(e) => setContenido(e.target.value)}
-            placeholder="Escribí tu nota..."
+            placeholder="EscribÃ­ tu nota..."
             className="flex-1 resize-none bg-transparent p-5 text-base leading-7 text-white outline-none placeholder:text-zinc-600"
           />
         </div>
@@ -195,7 +195,7 @@ export function NotesPage() {
       {deleteConfirm !== null && (
         <Modal
           title="Eliminar nota"
-          description="¿Seguro que querés eliminarla?"
+          description="Â¿Seguro que querÃ©s eliminarla?"
           type="warning"
           onClose={{ action: () => setDeleteConfirm(null), label: 'Cancelar' }}
           onConfirm={{ action: () => void confirmarEliminar(), label: 'Eliminar', destructive: true }}
