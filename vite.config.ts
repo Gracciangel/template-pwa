@@ -6,11 +6,14 @@ import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 // GitHub Pages sirve el sitio en /template-pwa/. Netlify lo sirve en la raíz
-// (PUBLIC_BASE="/" en netlify.toml). El mismo build se adapta con esta variable.
-const base = process.env.PUBLIC_BASE ?? '/template-pwa/'
+// (PUBLIC_BASE="/" en netlify.toml). En desarrollo servimos en la raíz para
+// poder abrir http://localhost:5173/ sin la subruta.
+export default defineConfig(({ command, isPreview }) => {
+  const esDev = command === 'serve' && !isPreview
+  const base = process.env.PUBLIC_BASE ?? (esDev ? '/' : '/template-pwa/')
 
-export default defineConfig({
-  base,
+  return {
+    base,
   plugins: [
     react(),
     tailwindcss(),
@@ -57,5 +60,6 @@ export default defineConfig({
         if (existsSync(index)) copyFileSync(index, resolve('dist/404.html'))
       },
     },
-  ],
+    ],
+  }
 })
